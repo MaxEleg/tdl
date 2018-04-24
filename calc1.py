@@ -7,11 +7,12 @@
 tokens = (
     'NAME','NUMBER',
     'PLUS','MINUS','TIMES','DIVIDE',
-    'LPAREN','RPAREN', 'SEMICOLON'
-    )
+    'LPAREN','RPAREN', 'SEMICOLON', 'EQUAL'
+)
 
 # Tokens
 
+names = {}
 
 t_PLUS    = r'\+'
 t_MINUS   = r'-'
@@ -21,6 +22,7 @@ t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
 t_NAME    = r'[a-zA-Z_][a-zA-Z0-9_]*'
 t_SEMICOLON    = r';'
+t_EQUAL    = r'='
 
 def t_NUMBER(t):
     r'\d+'
@@ -47,7 +49,7 @@ precedence = (
     ('left','PLUS','MINUS'),
     ('left','TIMES','DIVIDE'),
     ('right','UMINUS')
-    )
+)
 
 
 
@@ -94,6 +96,10 @@ def p_expression_name(p):
         print("Undefined name '%s'" % p[1])
         p[0] = 0
 
+def p_expression_affect(p):
+    'statement : NAME EQUAL expression SEMICOLON'
+    names[p[1]] = p[3]
+
 def p_error(p):
     print("Syntax error at '%s'" % p.value)
 
@@ -102,14 +108,12 @@ def eval(t):
         op=t[0]
         a=t[1]
         b=t[2]
-
         if op == '+':  return eval(a) + eval(b)
         elif op == '-':  return eval(a) - eval(b)
         elif op == '*':  return eval(a) * eval(b)
         elif op == '/':  return eval(a) / eval(b)
     else:
         return t;
-
 def printTree(t):
     if type(t) == tuple:
         print(t[0])
