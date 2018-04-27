@@ -7,7 +7,9 @@
 tokens = (
     'NAME','NUMBER',
     'PLUS','MINUS','TIMES','DIVIDE',
-    'LPAREN','RPAREN', 'SEMICOLON', 'EQUAL'
+    'LPAREN','RPAREN', 'SEMICOLON',
+    'EQUAL', 'COMP_EQ', 'COMP_LE',
+    'COMP_GR', 'COMP_DIFF', 'COMP_EQ_LE', 'COMP_EQ_GR',
 )
 
 # Tokens
@@ -23,6 +25,13 @@ t_RPAREN  = r'\)'
 t_NAME    = r'[a-zA-Z_][a-zA-Z0-9_]*'
 t_SEMICOLON    = r';'
 t_EQUAL    = r'='
+t_COMP_EQ    = r'=='
+t_COMP_LE    = r'<'
+t_COMP_GR    = r'>'
+t_COMP_DIFF    = r'!='
+t_COMP_EQ_LE    = r'<='
+t_COMP_EQ_GR    = r'>='
+
 
 def t_NUMBER(t):
     r'\d+'
@@ -50,10 +59,6 @@ precedence = (
     ('left','TIMES','DIVIDE'),
     ('right','UMINUS')
 )
-
-
-
-
 
 def p_statement_expr(p):
     '''statement : statement expression SEMICOLON
@@ -100,6 +105,17 @@ def p_expression_affect(p):
     'statement : NAME EQUAL expression SEMICOLON'
     names[p[1]] = p[3]
 
+def p_expression_comp(p):
+    '''statement : expression COMP_EQ expression
+                 | expression COMP_LE expression
+                 | expression COMP_GR expression
+                 | expression COMP_DIFF expression
+                 | expression COMP_EQ_GR expression
+                 | expression COMP_EQ_LE expression '''
+    p[0] = (p[2], p[1], p[3])
+    print(p[0])
+    print(eval(p[0]))
+
 def p_error(p):
     print("Syntax error at '%s'" % p.value)
 
@@ -111,7 +127,13 @@ def eval(t):
         if op == '+':  return eval(a) + eval(b)
         elif op == '-':  return eval(a) - eval(b)
         elif op == '*':  return eval(a) * eval(b)
-        elif op == '/':  return eval(a) / eval(b)
+        elif op == '/': return eval(a) / eval(b)
+        elif op == '==': return eval(a) == eval(b)
+        elif op == '<': return eval(a) < eval(b)
+        elif op == '>': return eval(a) > eval(b)
+        elif op == '!=': return eval(a) != eval(b)
+        elif op == '<=': return eval(a) <= eval(b)
+        elif op == '>=': return eval(a) >= eval(b)
     else:
         return t;
 def printTree(t):
