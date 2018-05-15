@@ -1,5 +1,10 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
+Unused terminals:
+
+    AND
+    OR
+
 Grammar
 
 Rule 0     S' -> statement
@@ -9,66 +14,44 @@ Rule 3     expression -> expression PLUS expression
 Rule 4     expression -> expression MINUS expression
 Rule 5     expression -> expression TIMES expression
 Rule 6     expression -> expression DIVIDE expression
-<<<<<<< HEAD
 Rule 7     expression -> expression EQUAL expression
 Rule 8     expression -> MINUS expression
 Rule 9     expression -> LPAREN expression RPAREN
 Rule 10    expression -> NUMBER
 Rule 11    expression -> NAME
 Rule 12    statement -> NAME EQUAL expression SEMICOLON
+Rule 13    statement -> expression COMP_EQ expression
+Rule 14    statement -> expression COMP_LE expression
+Rule 15    statement -> expression COMP_GR expression
+Rule 16    statement -> expression COMP_DIFF expression
+Rule 17    statement -> expression COMP_EQ_GR expression
+Rule 18    statement -> expression COMP_EQ_LE expression
 
 Terminals, with rules where they appear
 
+AND                  : 
+COMP_DIFF            : 16
+COMP_EQ              : 13
+COMP_EQ_GR           : 17
+COMP_EQ_LE           : 18
+COMP_GR              : 15
+COMP_LE              : 14
 DIVIDE               : 6
 EQUAL                : 7 12
 LPAREN               : 9
 MINUS                : 4 8
 NAME                 : 11 12
 NUMBER               : 10
+OR                   : 
 PLUS                 : 3
 RPAREN               : 9
 SEMICOLON            : 1 2 12
-=======
-Rule 7     expression -> MINUS expression
-Rule 8     expression -> LPAREN expression RPAREN
-Rule 9     expression -> NUMBER
-Rule 10    expression -> NAME
-Rule 11    statement -> NAME EQUAL expression SEMICOLON
-Rule 12    statement -> expression COMP_EQ expression
-Rule 13    statement -> expression COMP_LE expression
-Rule 14    statement -> expression COMP_GR expression
-Rule 15    statement -> expression COMP_DIFF expression
-Rule 16    statement -> expression COMP_EQ_GR expression
-Rule 17    statement -> expression COMP_EQ_LE expression
-
-Terminals, with rules where they appear
-
-COMP_DIFF            : 15
-COMP_EQ              : 12
-COMP_EQ_GR           : 16
-COMP_EQ_LE           : 17
-COMP_GR              : 14
-COMP_LE              : 13
-DIVIDE               : 6
-EQUAL                : 11
-LPAREN               : 8
-MINUS                : 4 7
-NAME                 : 10 11
-NUMBER               : 9
-PLUS                 : 3
-RPAREN               : 8
-SEMICOLON            : 1 2 11
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 TIMES                : 5
 error                : 
 
 Nonterminals, with rules where they appear
 
-<<<<<<< HEAD
-expression           : 1 2 3 3 4 4 5 5 6 6 7 7 8 9 12
-=======
-expression           : 1 2 3 3 4 4 5 5 6 6 7 8 11 12 12 13 13 14 14 15 15 16 16 17 17
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+expression           : 1 2 3 3 4 4 5 5 6 6 7 7 8 9 12 13 13 14 14 15 15 16 16 17 17 18 18
 statement            : 1 0
 
 Parsing method: LALR
@@ -78,33 +61,22 @@ state 0
     (0) S' -> . statement
     (1) statement -> . statement expression SEMICOLON
     (2) statement -> . expression SEMICOLON
-<<<<<<< HEAD
     (12) statement -> . NAME EQUAL expression SEMICOLON
-=======
-    (11) statement -> . NAME EQUAL expression SEMICOLON
-    (12) statement -> . expression COMP_EQ expression
-    (13) statement -> . expression COMP_LE expression
-    (14) statement -> . expression COMP_GR expression
-    (15) statement -> . expression COMP_DIFF expression
-    (16) statement -> . expression COMP_EQ_GR expression
-    (17) statement -> . expression COMP_EQ_LE expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (13) statement -> . expression COMP_EQ expression
+    (14) statement -> . expression COMP_LE expression
+    (15) statement -> . expression COMP_GR expression
+    (16) statement -> . expression COMP_DIFF expression
+    (17) statement -> . expression COMP_EQ_GR expression
+    (18) statement -> . expression COMP_EQ_LE expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     NAME            shift and go to state 3
     MINUS           shift and go to state 4
@@ -122,18 +94,11 @@ state 1
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
@@ -145,29 +110,17 @@ state 1
 state 2
 
     (2) statement -> expression . SEMICOLON
-<<<<<<< HEAD
-=======
-    (12) statement -> expression . COMP_EQ expression
-    (13) statement -> expression . COMP_LE expression
-    (14) statement -> expression . COMP_GR expression
-    (15) statement -> expression . COMP_DIFF expression
-    (16) statement -> expression . COMP_EQ_GR expression
-    (17) statement -> expression . COMP_EQ_LE expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (13) statement -> expression . COMP_EQ expression
+    (14) statement -> expression . COMP_LE expression
+    (15) statement -> expression . COMP_GR expression
+    (16) statement -> expression . COMP_DIFF expression
+    (17) statement -> expression . COMP_EQ_GR expression
+    (18) statement -> expression . COMP_EQ_LE expression
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
-
-    SEMICOLON       shift and go to state 9
-    PLUS            shift and go to state 10
-    MINUS           shift and go to state 11
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-    EQUAL           shift and go to state 14
-=======
 
     SEMICOLON       shift and go to state 9
     COMP_EQ         shift and go to state 10
@@ -180,145 +133,92 @@ state 2
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    EQUAL           shift and go to state 20
 
 
 state 3
 
-<<<<<<< HEAD
     (12) statement -> NAME . EQUAL expression SEMICOLON
     (11) expression -> NAME .
 
   ! shift/reduce conflict for EQUAL resolved as shift
-    EQUAL           shift and go to state 15
+    EQUAL           shift and go to state 21
     SEMICOLON       reduce using rule 11 (expression -> NAME .)
+    COMP_EQ         reduce using rule 11 (expression -> NAME .)
+    COMP_LE         reduce using rule 11 (expression -> NAME .)
+    COMP_GR         reduce using rule 11 (expression -> NAME .)
+    COMP_DIFF       reduce using rule 11 (expression -> NAME .)
+    COMP_EQ_GR      reduce using rule 11 (expression -> NAME .)
+    COMP_EQ_LE      reduce using rule 11 (expression -> NAME .)
     PLUS            reduce using rule 11 (expression -> NAME .)
     MINUS           reduce using rule 11 (expression -> NAME .)
     TIMES           reduce using rule 11 (expression -> NAME .)
     DIVIDE          reduce using rule 11 (expression -> NAME .)
 
   ! EQUAL           [ reduce using rule 11 (expression -> NAME .) ]
-=======
-    (11) statement -> NAME . EQUAL expression SEMICOLON
-    (10) expression -> NAME .
-
-    EQUAL           shift and go to state 20
-    SEMICOLON       reduce using rule 10 (expression -> NAME .)
-    COMP_EQ         reduce using rule 10 (expression -> NAME .)
-    COMP_LE         reduce using rule 10 (expression -> NAME .)
-    COMP_GR         reduce using rule 10 (expression -> NAME .)
-    COMP_DIFF       reduce using rule 10 (expression -> NAME .)
-    COMP_EQ_GR      reduce using rule 10 (expression -> NAME .)
-    COMP_EQ_LE      reduce using rule 10 (expression -> NAME .)
-    PLUS            reduce using rule 10 (expression -> NAME .)
-    MINUS           reduce using rule 10 (expression -> NAME .)
-    TIMES           reduce using rule 10 (expression -> NAME .)
-    DIVIDE          reduce using rule 10 (expression -> NAME .)
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
 
 state 4
 
-<<<<<<< HEAD
     (8) expression -> MINUS . expression
-=======
-    (7) expression -> MINUS . expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
     NUMBER          shift and go to state 6
     NAME            shift and go to state 8
 
-<<<<<<< HEAD
-    expression                     shift and go to state 16
+    expression                     shift and go to state 22
 
 state 5
 
     (9) expression -> LPAREN . expression RPAREN
-=======
-    expression                     shift and go to state 21
-
-state 5
-
-    (8) expression -> LPAREN . expression RPAREN
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
     NUMBER          shift and go to state 6
     NAME            shift and go to state 8
 
-<<<<<<< HEAD
-    expression                     shift and go to state 17
+    expression                     shift and go to state 23
 
 state 6
 
     (10) expression -> NUMBER .
 
     SEMICOLON       reduce using rule 10 (expression -> NUMBER .)
+    COMP_EQ         reduce using rule 10 (expression -> NUMBER .)
+    COMP_LE         reduce using rule 10 (expression -> NUMBER .)
+    COMP_GR         reduce using rule 10 (expression -> NUMBER .)
+    COMP_DIFF       reduce using rule 10 (expression -> NUMBER .)
+    COMP_EQ_GR      reduce using rule 10 (expression -> NUMBER .)
+    COMP_EQ_LE      reduce using rule 10 (expression -> NUMBER .)
     PLUS            reduce using rule 10 (expression -> NUMBER .)
     MINUS           reduce using rule 10 (expression -> NUMBER .)
     TIMES           reduce using rule 10 (expression -> NUMBER .)
     DIVIDE          reduce using rule 10 (expression -> NUMBER .)
     EQUAL           reduce using rule 10 (expression -> NUMBER .)
     RPAREN          reduce using rule 10 (expression -> NUMBER .)
-=======
-    expression                     shift and go to state 22
-
-state 6
-
-    (9) expression -> NUMBER .
-
-    SEMICOLON       reduce using rule 9 (expression -> NUMBER .)
-    COMP_EQ         reduce using rule 9 (expression -> NUMBER .)
-    COMP_LE         reduce using rule 9 (expression -> NUMBER .)
-    COMP_GR         reduce using rule 9 (expression -> NUMBER .)
-    COMP_DIFF       reduce using rule 9 (expression -> NUMBER .)
-    COMP_EQ_GR      reduce using rule 9 (expression -> NUMBER .)
-    COMP_EQ_LE      reduce using rule 9 (expression -> NUMBER .)
-    PLUS            reduce using rule 9 (expression -> NUMBER .)
-    MINUS           reduce using rule 9 (expression -> NUMBER .)
-    TIMES           reduce using rule 9 (expression -> NUMBER .)
-    DIVIDE          reduce using rule 9 (expression -> NUMBER .)
-    RPAREN          reduce using rule 9 (expression -> NUMBER .)
-    LPAREN          reduce using rule 9 (expression -> NUMBER .)
-    NUMBER          reduce using rule 9 (expression -> NUMBER .)
-    NAME            reduce using rule 9 (expression -> NUMBER .)
-    $end            reduce using rule 9 (expression -> NUMBER .)
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    LPAREN          reduce using rule 10 (expression -> NUMBER .)
+    NUMBER          reduce using rule 10 (expression -> NUMBER .)
+    NAME            reduce using rule 10 (expression -> NUMBER .)
+    $end            reduce using rule 10 (expression -> NUMBER .)
 
 
 state 7
@@ -328,28 +228,18 @@ state 7
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
 
-    SEMICOLON       shift and go to state 18
-    PLUS            shift and go to state 10
-    MINUS           shift and go to state 11
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-    EQUAL           shift and go to state 14
-=======
-
-    SEMICOLON       shift and go to state 23
+    SEMICOLON       shift and go to state 24
     PLUS            shift and go to state 16
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    EQUAL           shift and go to state 20
 
 
 state 8
 
-<<<<<<< HEAD
     (11) expression -> NAME .
 
     SEMICOLON       reduce using rule 11 (expression -> NAME .)
@@ -358,27 +248,17 @@ state 8
     TIMES           reduce using rule 11 (expression -> NAME .)
     DIVIDE          reduce using rule 11 (expression -> NAME .)
     EQUAL           reduce using rule 11 (expression -> NAME .)
+    COMP_EQ         reduce using rule 11 (expression -> NAME .)
+    COMP_LE         reduce using rule 11 (expression -> NAME .)
+    COMP_GR         reduce using rule 11 (expression -> NAME .)
+    COMP_DIFF       reduce using rule 11 (expression -> NAME .)
+    COMP_EQ_GR      reduce using rule 11 (expression -> NAME .)
+    COMP_EQ_LE      reduce using rule 11 (expression -> NAME .)
     RPAREN          reduce using rule 11 (expression -> NAME .)
-=======
-    (10) expression -> NAME .
-
-    SEMICOLON       reduce using rule 10 (expression -> NAME .)
-    PLUS            reduce using rule 10 (expression -> NAME .)
-    MINUS           reduce using rule 10 (expression -> NAME .)
-    TIMES           reduce using rule 10 (expression -> NAME .)
-    DIVIDE          reduce using rule 10 (expression -> NAME .)
-    COMP_EQ         reduce using rule 10 (expression -> NAME .)
-    COMP_LE         reduce using rule 10 (expression -> NAME .)
-    COMP_GR         reduce using rule 10 (expression -> NAME .)
-    COMP_DIFF       reduce using rule 10 (expression -> NAME .)
-    COMP_EQ_GR      reduce using rule 10 (expression -> NAME .)
-    COMP_EQ_LE      reduce using rule 10 (expression -> NAME .)
-    RPAREN          reduce using rule 10 (expression -> NAME .)
-    LPAREN          reduce using rule 10 (expression -> NAME .)
-    NUMBER          reduce using rule 10 (expression -> NAME .)
-    NAME            reduce using rule 10 (expression -> NAME .)
-    $end            reduce using rule 10 (expression -> NAME .)
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    LPAREN          reduce using rule 11 (expression -> NAME .)
+    NUMBER          reduce using rule 11 (expression -> NAME .)
+    NAME            reduce using rule 11 (expression -> NAME .)
+    $end            reduce using rule 11 (expression -> NAME .)
 
 
 state 9
@@ -394,228 +274,116 @@ state 9
 
 state 10
 
-<<<<<<< HEAD
-    (3) expression -> expression PLUS . expression
-=======
-    (12) statement -> expression COMP_EQ . expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (13) statement -> expression COMP_EQ . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
     NUMBER          shift and go to state 6
     NAME            shift and go to state 8
 
-<<<<<<< HEAD
-    expression                     shift and go to state 19
-
-state 11
-
-    (4) expression -> expression MINUS . expression
-=======
-    expression                     shift and go to state 24
-
-state 11
-
-    (13) statement -> expression COMP_LE . expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
-    (7) expression -> . expression EQUAL expression
-    (8) expression -> . MINUS expression
-    (9) expression -> . LPAREN expression RPAREN
-    (10) expression -> . NUMBER
-    (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
-
-    MINUS           shift and go to state 4
-    LPAREN          shift and go to state 5
-    NUMBER          shift and go to state 6
-    NAME            shift and go to state 8
-
-<<<<<<< HEAD
-    expression                     shift and go to state 20
-
-state 12
-
-    (5) expression -> expression TIMES . expression
-=======
     expression                     shift and go to state 25
 
-state 12
+state 11
 
-    (14) statement -> expression COMP_GR . expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (14) statement -> expression COMP_LE . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
     NUMBER          shift and go to state 6
     NAME            shift and go to state 8
 
-<<<<<<< HEAD
-    expression                     shift and go to state 21
-
-state 13
-
-    (6) expression -> expression DIVIDE . expression
-=======
     expression                     shift and go to state 26
 
-state 13
+state 12
 
-    (15) statement -> expression COMP_DIFF . expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (15) statement -> expression COMP_GR . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
     NUMBER          shift and go to state 6
     NAME            shift and go to state 8
 
-<<<<<<< HEAD
-    expression                     shift and go to state 22
-
-state 14
-
-    (7) expression -> expression EQUAL . expression
-=======
     expression                     shift and go to state 27
 
-state 14
+state 13
 
-    (16) statement -> expression COMP_EQ_GR . expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (16) statement -> expression COMP_DIFF . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
     NUMBER          shift and go to state 6
     NAME            shift and go to state 8
 
-<<<<<<< HEAD
-    expression                     shift and go to state 23
-
-state 15
-
-    (12) statement -> NAME EQUAL . expression SEMICOLON
-=======
     expression                     shift and go to state 28
 
-state 15
+state 14
 
-    (17) statement -> expression COMP_EQ_LE . expression
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (17) statement -> expression COMP_EQ_GR . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> . expression EQUAL expression
     (8) expression -> . MINUS expression
     (9) expression -> . LPAREN expression RPAREN
     (10) expression -> . NUMBER
     (11) expression -> . NAME
-=======
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
     NUMBER          shift and go to state 6
     NAME            shift and go to state 8
 
-<<<<<<< HEAD
-    expression                     shift and go to state 24
-
-state 16
-
-    (8) expression -> MINUS expression .
-=======
     expression                     shift and go to state 29
 
-state 16
+state 15
 
-    (3) expression -> expression PLUS . expression
+    (18) statement -> expression COMP_EQ_LE . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (7) expression -> . expression EQUAL expression
+    (8) expression -> . MINUS expression
+    (9) expression -> . LPAREN expression RPAREN
+    (10) expression -> . NUMBER
+    (11) expression -> . NAME
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
@@ -624,17 +392,18 @@ state 16
 
     expression                     shift and go to state 30
 
-state 17
+state 16
 
-    (4) expression -> expression MINUS . expression
+    (3) expression -> expression PLUS . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (7) expression -> . expression EQUAL expression
+    (8) expression -> . MINUS expression
+    (9) expression -> . LPAREN expression RPAREN
+    (10) expression -> . NUMBER
+    (11) expression -> . NAME
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
@@ -643,17 +412,18 @@ state 17
 
     expression                     shift and go to state 31
 
-state 18
+state 17
 
-    (5) expression -> expression TIMES . expression
+    (4) expression -> expression MINUS . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (7) expression -> . expression EQUAL expression
+    (8) expression -> . MINUS expression
+    (9) expression -> . LPAREN expression RPAREN
+    (10) expression -> . NUMBER
+    (11) expression -> . NAME
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
@@ -662,17 +432,18 @@ state 18
 
     expression                     shift and go to state 32
 
-state 19
+state 18
 
-    (6) expression -> expression DIVIDE . expression
+    (5) expression -> expression TIMES . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (7) expression -> . expression EQUAL expression
+    (8) expression -> . MINUS expression
+    (9) expression -> . LPAREN expression RPAREN
+    (10) expression -> . NUMBER
+    (11) expression -> . NAME
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
@@ -681,17 +452,18 @@ state 19
 
     expression                     shift and go to state 33
 
-state 20
+state 19
 
-    (11) statement -> NAME EQUAL . expression SEMICOLON
+    (6) expression -> expression DIVIDE . expression
     (3) expression -> . expression PLUS expression
     (4) expression -> . expression MINUS expression
     (5) expression -> . expression TIMES expression
     (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (7) expression -> . expression EQUAL expression
+    (8) expression -> . MINUS expression
+    (9) expression -> . LPAREN expression RPAREN
+    (10) expression -> . NUMBER
+    (11) expression -> . NAME
 
     MINUS           shift and go to state 4
     LPAREN          shift and go to state 5
@@ -700,91 +472,98 @@ state 20
 
     expression                     shift and go to state 34
 
+state 20
+
+    (7) expression -> expression EQUAL . expression
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression EQUAL expression
+    (8) expression -> . MINUS expression
+    (9) expression -> . LPAREN expression RPAREN
+    (10) expression -> . NUMBER
+    (11) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 8
+
+    expression                     shift and go to state 35
+
 state 21
 
-    (7) expression -> MINUS expression .
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (12) statement -> NAME EQUAL . expression SEMICOLON
+    (3) expression -> . expression PLUS expression
+    (4) expression -> . expression MINUS expression
+    (5) expression -> . expression TIMES expression
+    (6) expression -> . expression DIVIDE expression
+    (7) expression -> . expression EQUAL expression
+    (8) expression -> . MINUS expression
+    (9) expression -> . LPAREN expression RPAREN
+    (10) expression -> . NUMBER
+    (11) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 8
+
+    expression                     shift and go to state 36
+
+state 22
+
+    (8) expression -> MINUS expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
 
     SEMICOLON       reduce using rule 8 (expression -> MINUS expression .)
+    COMP_EQ         reduce using rule 8 (expression -> MINUS expression .)
+    COMP_LE         reduce using rule 8 (expression -> MINUS expression .)
+    COMP_GR         reduce using rule 8 (expression -> MINUS expression .)
+    COMP_DIFF       reduce using rule 8 (expression -> MINUS expression .)
+    COMP_EQ_GR      reduce using rule 8 (expression -> MINUS expression .)
+    COMP_EQ_LE      reduce using rule 8 (expression -> MINUS expression .)
     PLUS            reduce using rule 8 (expression -> MINUS expression .)
     MINUS           reduce using rule 8 (expression -> MINUS expression .)
     TIMES           reduce using rule 8 (expression -> MINUS expression .)
     DIVIDE          reduce using rule 8 (expression -> MINUS expression .)
     EQUAL           reduce using rule 8 (expression -> MINUS expression .)
     RPAREN          reduce using rule 8 (expression -> MINUS expression .)
-
-  ! PLUS            [ shift and go to state 10 ]
-  ! MINUS           [ shift and go to state 11 ]
-  ! TIMES           [ shift and go to state 12 ]
-  ! DIVIDE          [ shift and go to state 13 ]
-  ! EQUAL           [ shift and go to state 14 ]
-
-
-state 17
-
-    (9) expression -> LPAREN expression . RPAREN
-=======
-
-    SEMICOLON       reduce using rule 7 (expression -> MINUS expression .)
-    COMP_EQ         reduce using rule 7 (expression -> MINUS expression .)
-    COMP_LE         reduce using rule 7 (expression -> MINUS expression .)
-    COMP_GR         reduce using rule 7 (expression -> MINUS expression .)
-    COMP_DIFF       reduce using rule 7 (expression -> MINUS expression .)
-    COMP_EQ_GR      reduce using rule 7 (expression -> MINUS expression .)
-    COMP_EQ_LE      reduce using rule 7 (expression -> MINUS expression .)
-    PLUS            reduce using rule 7 (expression -> MINUS expression .)
-    MINUS           reduce using rule 7 (expression -> MINUS expression .)
-    TIMES           reduce using rule 7 (expression -> MINUS expression .)
-    DIVIDE          reduce using rule 7 (expression -> MINUS expression .)
-    RPAREN          reduce using rule 7 (expression -> MINUS expression .)
-    LPAREN          reduce using rule 7 (expression -> MINUS expression .)
-    NUMBER          reduce using rule 7 (expression -> MINUS expression .)
-    NAME            reduce using rule 7 (expression -> MINUS expression .)
-    $end            reduce using rule 7 (expression -> MINUS expression .)
+    LPAREN          reduce using rule 8 (expression -> MINUS expression .)
+    NUMBER          reduce using rule 8 (expression -> MINUS expression .)
+    NAME            reduce using rule 8 (expression -> MINUS expression .)
+    $end            reduce using rule 8 (expression -> MINUS expression .)
 
   ! PLUS            [ shift and go to state 16 ]
   ! MINUS           [ shift and go to state 17 ]
   ! TIMES           [ shift and go to state 18 ]
   ! DIVIDE          [ shift and go to state 19 ]
+  ! EQUAL           [ shift and go to state 20 ]
 
 
-state 22
+state 23
 
-    (8) expression -> LPAREN expression . RPAREN
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+    (9) expression -> LPAREN expression . RPAREN
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
 
-    RPAREN          shift and go to state 25
-    PLUS            shift and go to state 10
-    MINUS           shift and go to state 11
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-    EQUAL           shift and go to state 14
-
-
-state 18
-=======
-
-    RPAREN          shift and go to state 35
+    RPAREN          shift and go to state 37
     PLUS            shift and go to state 16
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
 
-state 23
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+state 24
 
     (1) statement -> statement expression SEMICOLON .
 
@@ -795,163 +574,152 @@ state 23
     $end            reduce using rule 1 (statement -> statement expression SEMICOLON .)
 
 
-<<<<<<< HEAD
-state 19
-=======
-state 24
-
-    (12) statement -> expression COMP_EQ expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
-
-  ! shift/reduce conflict for MINUS resolved as shift
-    LPAREN          reduce using rule 12 (statement -> expression COMP_EQ expression .)
-    NUMBER          reduce using rule 12 (statement -> expression COMP_EQ expression .)
-    NAME            reduce using rule 12 (statement -> expression COMP_EQ expression .)
-    $end            reduce using rule 12 (statement -> expression COMP_EQ expression .)
-    PLUS            shift and go to state 16
-    MINUS           shift and go to state 17
-    TIMES           shift and go to state 18
-    DIVIDE          shift and go to state 19
-
-  ! MINUS           [ reduce using rule 12 (statement -> expression COMP_EQ expression .) ]
-
-
 state 25
 
-    (13) statement -> expression COMP_LE expression .
+    (13) statement -> expression COMP_EQ expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . EQUAL expression
 
   ! shift/reduce conflict for MINUS resolved as shift
-    LPAREN          reduce using rule 13 (statement -> expression COMP_LE expression .)
-    NUMBER          reduce using rule 13 (statement -> expression COMP_LE expression .)
-    NAME            reduce using rule 13 (statement -> expression COMP_LE expression .)
-    $end            reduce using rule 13 (statement -> expression COMP_LE expression .)
+    LPAREN          reduce using rule 13 (statement -> expression COMP_EQ expression .)
+    NUMBER          reduce using rule 13 (statement -> expression COMP_EQ expression .)
+    NAME            reduce using rule 13 (statement -> expression COMP_EQ expression .)
+    $end            reduce using rule 13 (statement -> expression COMP_EQ expression .)
     PLUS            shift and go to state 16
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
-  ! MINUS           [ reduce using rule 13 (statement -> expression COMP_LE expression .) ]
+  ! MINUS           [ reduce using rule 13 (statement -> expression COMP_EQ expression .) ]
 
 
 state 26
 
-    (14) statement -> expression COMP_GR expression .
+    (14) statement -> expression COMP_LE expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . EQUAL expression
 
   ! shift/reduce conflict for MINUS resolved as shift
-    LPAREN          reduce using rule 14 (statement -> expression COMP_GR expression .)
-    NUMBER          reduce using rule 14 (statement -> expression COMP_GR expression .)
-    NAME            reduce using rule 14 (statement -> expression COMP_GR expression .)
-    $end            reduce using rule 14 (statement -> expression COMP_GR expression .)
+    LPAREN          reduce using rule 14 (statement -> expression COMP_LE expression .)
+    NUMBER          reduce using rule 14 (statement -> expression COMP_LE expression .)
+    NAME            reduce using rule 14 (statement -> expression COMP_LE expression .)
+    $end            reduce using rule 14 (statement -> expression COMP_LE expression .)
     PLUS            shift and go to state 16
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
-  ! MINUS           [ reduce using rule 14 (statement -> expression COMP_GR expression .) ]
+  ! MINUS           [ reduce using rule 14 (statement -> expression COMP_LE expression .) ]
 
 
 state 27
 
-    (15) statement -> expression COMP_DIFF expression .
+    (15) statement -> expression COMP_GR expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . EQUAL expression
 
   ! shift/reduce conflict for MINUS resolved as shift
-    LPAREN          reduce using rule 15 (statement -> expression COMP_DIFF expression .)
-    NUMBER          reduce using rule 15 (statement -> expression COMP_DIFF expression .)
-    NAME            reduce using rule 15 (statement -> expression COMP_DIFF expression .)
-    $end            reduce using rule 15 (statement -> expression COMP_DIFF expression .)
+    LPAREN          reduce using rule 15 (statement -> expression COMP_GR expression .)
+    NUMBER          reduce using rule 15 (statement -> expression COMP_GR expression .)
+    NAME            reduce using rule 15 (statement -> expression COMP_GR expression .)
+    $end            reduce using rule 15 (statement -> expression COMP_GR expression .)
     PLUS            shift and go to state 16
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
-  ! MINUS           [ reduce using rule 15 (statement -> expression COMP_DIFF expression .) ]
+  ! MINUS           [ reduce using rule 15 (statement -> expression COMP_GR expression .) ]
 
 
 state 28
 
-    (16) statement -> expression COMP_EQ_GR expression .
+    (16) statement -> expression COMP_DIFF expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . EQUAL expression
 
   ! shift/reduce conflict for MINUS resolved as shift
-    LPAREN          reduce using rule 16 (statement -> expression COMP_EQ_GR expression .)
-    NUMBER          reduce using rule 16 (statement -> expression COMP_EQ_GR expression .)
-    NAME            reduce using rule 16 (statement -> expression COMP_EQ_GR expression .)
-    $end            reduce using rule 16 (statement -> expression COMP_EQ_GR expression .)
+    LPAREN          reduce using rule 16 (statement -> expression COMP_DIFF expression .)
+    NUMBER          reduce using rule 16 (statement -> expression COMP_DIFF expression .)
+    NAME            reduce using rule 16 (statement -> expression COMP_DIFF expression .)
+    $end            reduce using rule 16 (statement -> expression COMP_DIFF expression .)
     PLUS            shift and go to state 16
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
-  ! MINUS           [ reduce using rule 16 (statement -> expression COMP_EQ_GR expression .) ]
+  ! MINUS           [ reduce using rule 16 (statement -> expression COMP_DIFF expression .) ]
 
 
 state 29
 
-    (17) statement -> expression COMP_EQ_LE expression .
+    (17) statement -> expression COMP_EQ_GR expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . EQUAL expression
 
   ! shift/reduce conflict for MINUS resolved as shift
-    LPAREN          reduce using rule 17 (statement -> expression COMP_EQ_LE expression .)
-    NUMBER          reduce using rule 17 (statement -> expression COMP_EQ_LE expression .)
-    NAME            reduce using rule 17 (statement -> expression COMP_EQ_LE expression .)
-    $end            reduce using rule 17 (statement -> expression COMP_EQ_LE expression .)
+    LPAREN          reduce using rule 17 (statement -> expression COMP_EQ_GR expression .)
+    NUMBER          reduce using rule 17 (statement -> expression COMP_EQ_GR expression .)
+    NAME            reduce using rule 17 (statement -> expression COMP_EQ_GR expression .)
+    $end            reduce using rule 17 (statement -> expression COMP_EQ_GR expression .)
     PLUS            shift and go to state 16
     MINUS           shift and go to state 17
     TIMES           shift and go to state 18
     DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
-  ! MINUS           [ reduce using rule 17 (statement -> expression COMP_EQ_LE expression .) ]
+  ! MINUS           [ reduce using rule 17 (statement -> expression COMP_EQ_GR expression .) ]
 
 
 state 30
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+
+    (18) statement -> expression COMP_EQ_LE expression .
+    (3) expression -> expression . PLUS expression
+    (4) expression -> expression . MINUS expression
+    (5) expression -> expression . TIMES expression
+    (6) expression -> expression . DIVIDE expression
+    (7) expression -> expression . EQUAL expression
+
+  ! shift/reduce conflict for MINUS resolved as shift
+    LPAREN          reduce using rule 18 (statement -> expression COMP_EQ_LE expression .)
+    NUMBER          reduce using rule 18 (statement -> expression COMP_EQ_LE expression .)
+    NAME            reduce using rule 18 (statement -> expression COMP_EQ_LE expression .)
+    $end            reduce using rule 18 (statement -> expression COMP_EQ_LE expression .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
+
+  ! MINUS           [ reduce using rule 18 (statement -> expression COMP_EQ_LE expression .) ]
+
+
+state 31
 
     (3) expression -> expression PLUS expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
-
-    SEMICOLON       reduce using rule 3 (expression -> expression PLUS expression .)
-    PLUS            reduce using rule 3 (expression -> expression PLUS expression .)
-    MINUS           reduce using rule 3 (expression -> expression PLUS expression .)
-    EQUAL           reduce using rule 3 (expression -> expression PLUS expression .)
-    RPAREN          reduce using rule 3 (expression -> expression PLUS expression .)
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-
-  ! TIMES           [ reduce using rule 3 (expression -> expression PLUS expression .) ]
-  ! DIVIDE          [ reduce using rule 3 (expression -> expression PLUS expression .) ]
-  ! PLUS            [ shift and go to state 10 ]
-  ! MINUS           [ shift and go to state 11 ]
-  ! EQUAL           [ shift and go to state 14 ]
-
-
-state 20
-=======
 
     SEMICOLON       reduce using rule 3 (expression -> expression PLUS expression .)
     COMP_EQ         reduce using rule 3 (expression -> expression PLUS expression .)
@@ -962,6 +730,7 @@ state 20
     COMP_EQ_LE      reduce using rule 3 (expression -> expression PLUS expression .)
     PLUS            reduce using rule 3 (expression -> expression PLUS expression .)
     MINUS           reduce using rule 3 (expression -> expression PLUS expression .)
+    EQUAL           reduce using rule 3 (expression -> expression PLUS expression .)
     RPAREN          reduce using rule 3 (expression -> expression PLUS expression .)
     LPAREN          reduce using rule 3 (expression -> expression PLUS expression .)
     NUMBER          reduce using rule 3 (expression -> expression PLUS expression .)
@@ -974,36 +743,17 @@ state 20
   ! DIVIDE          [ reduce using rule 3 (expression -> expression PLUS expression .) ]
   ! PLUS            [ shift and go to state 16 ]
   ! MINUS           [ shift and go to state 17 ]
+  ! EQUAL           [ shift and go to state 20 ]
 
 
-state 31
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+state 32
 
     (4) expression -> expression MINUS expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
-
-    SEMICOLON       reduce using rule 4 (expression -> expression MINUS expression .)
-    PLUS            reduce using rule 4 (expression -> expression MINUS expression .)
-    MINUS           reduce using rule 4 (expression -> expression MINUS expression .)
-    EQUAL           reduce using rule 4 (expression -> expression MINUS expression .)
-    RPAREN          reduce using rule 4 (expression -> expression MINUS expression .)
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-
-  ! TIMES           [ reduce using rule 4 (expression -> expression MINUS expression .) ]
-  ! DIVIDE          [ reduce using rule 4 (expression -> expression MINUS expression .) ]
-  ! PLUS            [ shift and go to state 10 ]
-  ! MINUS           [ shift and go to state 11 ]
-  ! EQUAL           [ shift and go to state 14 ]
-
-
-state 21
-=======
 
     SEMICOLON       reduce using rule 4 (expression -> expression MINUS expression .)
     COMP_EQ         reduce using rule 4 (expression -> expression MINUS expression .)
@@ -1014,6 +764,7 @@ state 21
     COMP_EQ_LE      reduce using rule 4 (expression -> expression MINUS expression .)
     PLUS            reduce using rule 4 (expression -> expression MINUS expression .)
     MINUS           reduce using rule 4 (expression -> expression MINUS expression .)
+    EQUAL           reduce using rule 4 (expression -> expression MINUS expression .)
     RPAREN          reduce using rule 4 (expression -> expression MINUS expression .)
     LPAREN          reduce using rule 4 (expression -> expression MINUS expression .)
     NUMBER          reduce using rule 4 (expression -> expression MINUS expression .)
@@ -1026,21 +777,17 @@ state 21
   ! DIVIDE          [ reduce using rule 4 (expression -> expression MINUS expression .) ]
   ! PLUS            [ shift and go to state 16 ]
   ! MINUS           [ shift and go to state 17 ]
+  ! EQUAL           [ shift and go to state 20 ]
 
 
-state 32
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+state 33
 
     (5) expression -> expression TIMES expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
-
-    SEMICOLON       reduce using rule 5 (expression -> expression TIMES expression .)
-=======
 
     SEMICOLON       reduce using rule 5 (expression -> expression TIMES expression .)
     COMP_EQ         reduce using rule 5 (expression -> expression TIMES expression .)
@@ -1049,24 +796,11 @@ state 32
     COMP_DIFF       reduce using rule 5 (expression -> expression TIMES expression .)
     COMP_EQ_GR      reduce using rule 5 (expression -> expression TIMES expression .)
     COMP_EQ_LE      reduce using rule 5 (expression -> expression TIMES expression .)
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
     PLUS            reduce using rule 5 (expression -> expression TIMES expression .)
     MINUS           reduce using rule 5 (expression -> expression TIMES expression .)
     TIMES           reduce using rule 5 (expression -> expression TIMES expression .)
     DIVIDE          reduce using rule 5 (expression -> expression TIMES expression .)
-<<<<<<< HEAD
     EQUAL           reduce using rule 5 (expression -> expression TIMES expression .)
-    RPAREN          reduce using rule 5 (expression -> expression TIMES expression .)
-
-  ! PLUS            [ shift and go to state 10 ]
-  ! MINUS           [ shift and go to state 11 ]
-  ! TIMES           [ shift and go to state 12 ]
-  ! DIVIDE          [ shift and go to state 13 ]
-  ! EQUAL           [ shift and go to state 14 ]
-
-
-state 22
-=======
     RPAREN          reduce using rule 5 (expression -> expression TIMES expression .)
     LPAREN          reduce using rule 5 (expression -> expression TIMES expression .)
     NUMBER          reduce using rule 5 (expression -> expression TIMES expression .)
@@ -1077,21 +811,17 @@ state 22
   ! MINUS           [ shift and go to state 17 ]
   ! TIMES           [ shift and go to state 18 ]
   ! DIVIDE          [ shift and go to state 19 ]
+  ! EQUAL           [ shift and go to state 20 ]
 
 
-state 33
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+state 34
 
     (6) expression -> expression DIVIDE expression .
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
-
-    SEMICOLON       reduce using rule 6 (expression -> expression DIVIDE expression .)
-=======
 
     SEMICOLON       reduce using rule 6 (expression -> expression DIVIDE expression .)
     COMP_EQ         reduce using rule 6 (expression -> expression DIVIDE expression .)
@@ -1100,23 +830,25 @@ state 33
     COMP_DIFF       reduce using rule 6 (expression -> expression DIVIDE expression .)
     COMP_EQ_GR      reduce using rule 6 (expression -> expression DIVIDE expression .)
     COMP_EQ_LE      reduce using rule 6 (expression -> expression DIVIDE expression .)
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
     PLUS            reduce using rule 6 (expression -> expression DIVIDE expression .)
     MINUS           reduce using rule 6 (expression -> expression DIVIDE expression .)
     TIMES           reduce using rule 6 (expression -> expression DIVIDE expression .)
     DIVIDE          reduce using rule 6 (expression -> expression DIVIDE expression .)
-<<<<<<< HEAD
     EQUAL           reduce using rule 6 (expression -> expression DIVIDE expression .)
     RPAREN          reduce using rule 6 (expression -> expression DIVIDE expression .)
+    LPAREN          reduce using rule 6 (expression -> expression DIVIDE expression .)
+    NUMBER          reduce using rule 6 (expression -> expression DIVIDE expression .)
+    NAME            reduce using rule 6 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 6 (expression -> expression DIVIDE expression .)
 
-  ! PLUS            [ shift and go to state 10 ]
-  ! MINUS           [ shift and go to state 11 ]
-  ! TIMES           [ shift and go to state 12 ]
-  ! DIVIDE          [ shift and go to state 13 ]
-  ! EQUAL           [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 16 ]
+  ! MINUS           [ shift and go to state 17 ]
+  ! TIMES           [ shift and go to state 18 ]
+  ! DIVIDE          [ shift and go to state 19 ]
+  ! EQUAL           [ shift and go to state 20 ]
 
 
-state 23
+state 35
 
     (7) expression -> expression EQUAL expression .
     (3) expression -> expression . PLUS expression
@@ -1131,12 +863,22 @@ state 23
   ! shift/reduce conflict for DIVIDE resolved as shift
   ! shift/reduce conflict for EQUAL resolved as shift
     SEMICOLON       reduce using rule 7 (expression -> expression EQUAL expression .)
+    COMP_EQ         reduce using rule 7 (expression -> expression EQUAL expression .)
+    COMP_LE         reduce using rule 7 (expression -> expression EQUAL expression .)
+    COMP_GR         reduce using rule 7 (expression -> expression EQUAL expression .)
+    COMP_DIFF       reduce using rule 7 (expression -> expression EQUAL expression .)
+    COMP_EQ_GR      reduce using rule 7 (expression -> expression EQUAL expression .)
+    COMP_EQ_LE      reduce using rule 7 (expression -> expression EQUAL expression .)
     RPAREN          reduce using rule 7 (expression -> expression EQUAL expression .)
-    PLUS            shift and go to state 10
-    MINUS           shift and go to state 11
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-    EQUAL           shift and go to state 14
+    LPAREN          reduce using rule 7 (expression -> expression EQUAL expression .)
+    NUMBER          reduce using rule 7 (expression -> expression EQUAL expression .)
+    NAME            reduce using rule 7 (expression -> expression EQUAL expression .)
+    $end            reduce using rule 7 (expression -> expression EQUAL expression .)
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
   ! PLUS            [ reduce using rule 7 (expression -> expression EQUAL expression .) ]
   ! MINUS           [ reduce using rule 7 (expression -> expression EQUAL expression .) ]
@@ -1145,55 +887,47 @@ state 23
   ! EQUAL           [ reduce using rule 7 (expression -> expression EQUAL expression .) ]
 
 
-state 24
+state 36
 
     (12) statement -> NAME EQUAL expression . SEMICOLON
-=======
-    RPAREN          reduce using rule 6 (expression -> expression DIVIDE expression .)
-    LPAREN          reduce using rule 6 (expression -> expression DIVIDE expression .)
-    NUMBER          reduce using rule 6 (expression -> expression DIVIDE expression .)
-    NAME            reduce using rule 6 (expression -> expression DIVIDE expression .)
-    $end            reduce using rule 6 (expression -> expression DIVIDE expression .)
-
-  ! PLUS            [ shift and go to state 16 ]
-  ! MINUS           [ shift and go to state 17 ]
-  ! TIMES           [ shift and go to state 18 ]
-  ! DIVIDE          [ shift and go to state 19 ]
-
-
-state 34
-
-    (11) statement -> NAME EQUAL expression . SEMICOLON
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
     (3) expression -> expression . PLUS expression
     (4) expression -> expression . MINUS expression
     (5) expression -> expression . TIMES expression
     (6) expression -> expression . DIVIDE expression
-<<<<<<< HEAD
     (7) expression -> expression . EQUAL expression
 
-    SEMICOLON       shift and go to state 26
-    PLUS            shift and go to state 10
-    MINUS           shift and go to state 11
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-    EQUAL           shift and go to state 14
+    SEMICOLON       shift and go to state 38
+    PLUS            shift and go to state 16
+    MINUS           shift and go to state 17
+    TIMES           shift and go to state 18
+    DIVIDE          shift and go to state 19
+    EQUAL           shift and go to state 20
 
 
-state 25
+state 37
 
     (9) expression -> LPAREN expression RPAREN .
 
     SEMICOLON       reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    COMP_EQ         reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    COMP_LE         reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    COMP_GR         reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    COMP_DIFF       reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    COMP_EQ_GR      reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    COMP_EQ_LE      reduce using rule 9 (expression -> LPAREN expression RPAREN .)
     PLUS            reduce using rule 9 (expression -> LPAREN expression RPAREN .)
     MINUS           reduce using rule 9 (expression -> LPAREN expression RPAREN .)
     TIMES           reduce using rule 9 (expression -> LPAREN expression RPAREN .)
     DIVIDE          reduce using rule 9 (expression -> LPAREN expression RPAREN .)
     EQUAL           reduce using rule 9 (expression -> LPAREN expression RPAREN .)
     RPAREN          reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    LPAREN          reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    NUMBER          reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    NAME            reduce using rule 9 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 9 (expression -> LPAREN expression RPAREN .)
 
 
-state 26
+state 38
 
     (12) statement -> NAME EQUAL expression SEMICOLON .
 
@@ -1202,63 +936,19 @@ state 26
     NUMBER          reduce using rule 12 (statement -> NAME EQUAL expression SEMICOLON .)
     NAME            reduce using rule 12 (statement -> NAME EQUAL expression SEMICOLON .)
     $end            reduce using rule 12 (statement -> NAME EQUAL expression SEMICOLON .)
-=======
-
-    SEMICOLON       shift and go to state 36
-    PLUS            shift and go to state 16
-    MINUS           shift and go to state 17
-    TIMES           shift and go to state 18
-    DIVIDE          shift and go to state 19
-
-
-state 35
-
-    (8) expression -> LPAREN expression RPAREN .
-
-    SEMICOLON       reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    COMP_EQ         reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    COMP_LE         reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    COMP_GR         reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    COMP_DIFF       reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    COMP_EQ_GR      reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    COMP_EQ_LE      reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    PLUS            reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    MINUS           reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    TIMES           reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    DIVIDE          reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    RPAREN          reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    LPAREN          reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    NUMBER          reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    NAME            reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    $end            reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-
-
-state 36
-
-    (11) statement -> NAME EQUAL expression SEMICOLON .
-
-    MINUS           reduce using rule 11 (statement -> NAME EQUAL expression SEMICOLON .)
-    LPAREN          reduce using rule 11 (statement -> NAME EQUAL expression SEMICOLON .)
-    NUMBER          reduce using rule 11 (statement -> NAME EQUAL expression SEMICOLON .)
-    NAME            reduce using rule 11 (statement -> NAME EQUAL expression SEMICOLON .)
-    $end            reduce using rule 11 (statement -> NAME EQUAL expression SEMICOLON .)
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-<<<<<<< HEAD
 WARNING: shift/reduce conflict for EQUAL in state 3 resolved as shift
-WARNING: shift/reduce conflict for PLUS in state 23 resolved as shift
-WARNING: shift/reduce conflict for MINUS in state 23 resolved as shift
-WARNING: shift/reduce conflict for TIMES in state 23 resolved as shift
-WARNING: shift/reduce conflict for DIVIDE in state 23 resolved as shift
-WARNING: shift/reduce conflict for EQUAL in state 23 resolved as shift
-=======
-WARNING: shift/reduce conflict for MINUS in state 24 resolved as shift
 WARNING: shift/reduce conflict for MINUS in state 25 resolved as shift
 WARNING: shift/reduce conflict for MINUS in state 26 resolved as shift
 WARNING: shift/reduce conflict for MINUS in state 27 resolved as shift
 WARNING: shift/reduce conflict for MINUS in state 28 resolved as shift
 WARNING: shift/reduce conflict for MINUS in state 29 resolved as shift
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+WARNING: shift/reduce conflict for MINUS in state 30 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 35 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 35 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 35 resolved as shift
+WARNING: shift/reduce conflict for EQUAL in state 35 resolved as shift

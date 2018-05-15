@@ -5,12 +5,7 @@
 # -----------------------------------------------------------------------------
 
 tokens = (
-    'NAME','NUMBER',
-    'PLUS','MINUS','TIMES','DIVIDE',
-    'LPAREN','RPAREN', 'SEMICOLON',
-    'EQUAL', 'COMP_EQ', 'COMP_LE',
-    'COMP_GR', 'COMP_DIFF', 'COMP_EQ_LE', 'COMP_EQ_GR',
-)
+    'NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE','LPAREN','RPAREN','SEMICOLON','OR','AND','EQUAL','COMP_EQ','COMP_LE','COMP_GR','COMP_DIFF','COMP_EQ_LE','COMP_EQ_GR')
 
 # Tokens
 

@@ -6,15 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-<<<<<<< HEAD
-_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDErightUMINUSDIVIDE EQUAL LPAREN MINUS NAME NUMBER PLUS RPAREN SEMICOLON TIMESstatement : statement expression SEMICOLON\n                 | expression SEMICOLONexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expression\n                  | expression EQUAL expressionexpression : MINUS expression %prec UMINUSexpression : LPAREN expression RPARENexpression : NUMBERexpression : NAMEstatement : NAME EQUAL expression SEMICOLON'
+_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDErightUMINUSAND COMP_DIFF COMP_EQ COMP_EQ_GR COMP_EQ_LE COMP_GR COMP_LE DIVIDE EQUAL LPAREN MINUS NAME NUMBER OR PLUS RPAREN SEMICOLON TIMESstatement : statement expression SEMICOLON\n                 | expression SEMICOLONexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expression\n                  | expression EQUAL expressionexpression : MINUS expression %prec UMINUSexpression : LPAREN expression RPARENexpression : NUMBERexpression : NAMEstatement : NAME EQUAL expression SEMICOLONstatement : expression COMP_EQ expression\n                 | expression COMP_LE expression\n                 | expression COMP_GR expression\n                 | expression COMP_DIFF expression\n                 | expression COMP_EQ_GR expression\n                 | expression COMP_EQ_LE expression '
     
-_lr_action_items = {'NAME':([0,1,4,5,9,10,11,12,13,14,15,18,26,],[3,8,8,8,-2,8,8,8,8,8,8,-1,-12,]),'MINUS':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,],[4,4,11,-11,4,4,-10,11,-11,-2,4,4,4,4,4,4,-8,11,-1,-3,-4,-5,-6,11,11,-9,-12,]),'LPAREN':([0,1,4,5,9,10,11,12,13,14,15,18,26,],[5,5,5,5,-2,5,5,5,5,5,5,-1,-12,]),'NUMBER':([0,1,4,5,9,10,11,12,13,14,15,18,26,],[6,6,6,6,-2,6,6,6,6,6,6,-1,-12,]),'$end':([1,9,18,26,],[0,-2,-1,-12,]),'SEMICOLON':([2,3,6,7,8,16,19,20,21,22,23,24,25,],[9,-11,-10,18,-11,-8,-3,-4,-5,-6,-7,26,-9,]),'PLUS':([2,3,6,7,8,16,17,19,20,21,22,23,24,25,],[10,-11,-10,10,-11,-8,10,-3,-4,-5,-6,10,10,-9,]),'TIMES':([2,3,6,7,8,16,17,19,20,21,22,23,24,25,],[12,-11,-10,12,-11,-8,12,12,12,-5,-6,12,12,-9,]),'DIVIDE':([2,3,6,7,8,16,17,19,20,21,22,23,24,25,],[13,-11,-10,13,-11,-8,13,13,13,-5,-6,13,13,-9,]),'EQUAL':([2,3,6,7,8,16,17,19,20,21,22,23,24,25,],[14,15,-10,14,-11,-8,14,-3,-4,-5,-6,14,14,-9,]),'RPAREN':([6,8,16,17,19,20,21,22,23,25,],[-10,-11,-8,25,-3,-4,-5,-6,-7,-9,]),}
-=======
-_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDErightUMINUSCOMP_DIFF COMP_EQ COMP_EQ_GR COMP_EQ_LE COMP_GR COMP_LE DIVIDE EQUAL LPAREN MINUS NAME NUMBER PLUS RPAREN SEMICOLON TIMESstatement : statement expression SEMICOLON\n                 | expression SEMICOLONexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expressionexpression : MINUS expression %prec UMINUSexpression : LPAREN expression RPARENexpression : NUMBERexpression : NAMEstatement : NAME EQUAL expression SEMICOLONstatement : expression COMP_EQ expression\n                 | expression COMP_LE expression\n                 | expression COMP_GR expression\n                 | expression COMP_DIFF expression\n                 | expression COMP_EQ_GR expression\n                 | expression COMP_EQ_LE expression '
-    
-_lr_action_items = {'NAME':([0,1,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,32,33,35,36,],[3,8,8,8,-9,-10,-2,8,8,8,8,8,8,8,8,8,8,8,-7,-1,-12,-13,-14,-15,-16,-17,-3,-4,-5,-6,-8,-11,]),'MINUS':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,],[4,4,17,-10,4,4,-9,17,-10,-2,4,4,4,4,4,4,4,4,4,4,4,-7,17,-1,17,17,17,17,17,17,-3,-4,-5,-6,17,-8,-11,]),'LPAREN':([0,1,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,32,33,35,36,],[5,5,5,5,-9,-10,-2,5,5,5,5,5,5,5,5,5,5,5,-7,-1,-12,-13,-14,-15,-16,-17,-3,-4,-5,-6,-8,-11,]),'NUMBER':([0,1,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,32,33,35,36,],[6,6,6,6,-9,-10,-2,6,6,6,6,6,6,6,6,6,6,6,-7,-1,-12,-13,-14,-15,-16,-17,-3,-4,-5,-6,-8,-11,]),'$end':([1,6,8,9,21,23,24,25,26,27,28,29,30,31,32,33,35,36,],[0,-9,-10,-2,-7,-1,-12,-13,-14,-15,-16,-17,-3,-4,-5,-6,-8,-11,]),'SEMICOLON':([2,3,6,7,8,21,30,31,32,33,34,35,],[9,-10,-9,23,-10,-7,-3,-4,-5,-6,36,-8,]),'COMP_EQ':([2,3,6,8,21,30,31,32,33,35,],[10,-10,-9,-10,-7,-3,-4,-5,-6,-8,]),'COMP_LE':([2,3,6,8,21,30,31,32,33,35,],[11,-10,-9,-10,-7,-3,-4,-5,-6,-8,]),'COMP_GR':([2,3,6,8,21,30,31,32,33,35,],[12,-10,-9,-10,-7,-3,-4,-5,-6,-8,]),'COMP_DIFF':([2,3,6,8,21,30,31,32,33,35,],[13,-10,-9,-10,-7,-3,-4,-5,-6,-8,]),'COMP_EQ_GR':([2,3,6,8,21,30,31,32,33,35,],[14,-10,-9,-10,-7,-3,-4,-5,-6,-8,]),'COMP_EQ_LE':([2,3,6,8,21,30,31,32,33,35,],[15,-10,-9,-10,-7,-3,-4,-5,-6,-8,]),'PLUS':([2,3,6,7,8,21,22,24,25,26,27,28,29,30,31,32,33,34,35,],[16,-10,-9,16,-10,-7,16,16,16,16,16,16,16,-3,-4,-5,-6,16,-8,]),'TIMES':([2,3,6,7,8,21,22,24,25,26,27,28,29,30,31,32,33,34,35,],[18,-10,-9,18,-10,-7,18,18,18,18,18,18,18,18,18,-5,-6,18,-8,]),'DIVIDE':([2,3,6,7,8,21,22,24,25,26,27,28,29,30,31,32,33,34,35,],[19,-10,-9,19,-10,-7,19,19,19,19,19,19,19,19,19,-5,-6,19,-8,]),'EQUAL':([3,],[20,]),'RPAREN':([6,8,21,22,30,31,32,33,35,],[-9,-10,-7,35,-3,-4,-5,-6,-8,]),}
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+_lr_action_items = {'NAME':([0,1,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,37,38,],[3,8,8,8,-10,-11,-2,8,8,8,8,8,8,8,8,8,8,8,8,-8,-1,-13,-14,-15,-16,-17,-18,-3,-4,-5,-6,-7,-9,-12,]),'MINUS':([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,],[4,4,17,-11,4,4,-10,17,-11,-2,4,4,4,4,4,4,4,4,4,4,4,4,-8,17,-1,17,17,17,17,17,17,-3,-4,-5,-6,17,17,-9,-12,]),'LPAREN':([0,1,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,37,38,],[5,5,5,5,-10,-11,-2,5,5,5,5,5,5,5,5,5,5,5,5,-8,-1,-13,-14,-15,-16,-17,-18,-3,-4,-5,-6,-7,-9,-12,]),'NUMBER':([0,1,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25,26,27,28,29,30,31,32,33,34,35,37,38,],[6,6,6,6,-10,-11,-2,6,6,6,6,6,6,6,6,6,6,6,6,-8,-1,-13,-14,-15,-16,-17,-18,-3,-4,-5,-6,-7,-9,-12,]),'$end':([1,6,8,9,22,24,25,26,27,28,29,30,31,32,33,34,35,37,38,],[0,-10,-11,-2,-8,-1,-13,-14,-15,-16,-17,-18,-3,-4,-5,-6,-7,-9,-12,]),'SEMICOLON':([2,3,6,7,8,22,31,32,33,34,35,36,37,],[9,-11,-10,24,-11,-8,-3,-4,-5,-6,-7,38,-9,]),'COMP_EQ':([2,3,6,8,22,31,32,33,34,35,37,],[10,-11,-10,-11,-8,-3,-4,-5,-6,-7,-9,]),'COMP_LE':([2,3,6,8,22,31,32,33,34,35,37,],[11,-11,-10,-11,-8,-3,-4,-5,-6,-7,-9,]),'COMP_GR':([2,3,6,8,22,31,32,33,34,35,37,],[12,-11,-10,-11,-8,-3,-4,-5,-6,-7,-9,]),'COMP_DIFF':([2,3,6,8,22,31,32,33,34,35,37,],[13,-11,-10,-11,-8,-3,-4,-5,-6,-7,-9,]),'COMP_EQ_GR':([2,3,6,8,22,31,32,33,34,35,37,],[14,-11,-10,-11,-8,-3,-4,-5,-6,-7,-9,]),'COMP_EQ_LE':([2,3,6,8,22,31,32,33,34,35,37,],[15,-11,-10,-11,-8,-3,-4,-5,-6,-7,-9,]),'PLUS':([2,3,6,7,8,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,],[16,-11,-10,16,-11,-8,16,16,16,16,16,16,16,-3,-4,-5,-6,16,16,-9,]),'TIMES':([2,3,6,7,8,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,],[18,-11,-10,18,-11,-8,18,18,18,18,18,18,18,18,18,-5,-6,18,18,-9,]),'DIVIDE':([2,3,6,7,8,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,],[19,-11,-10,19,-11,-8,19,19,19,19,19,19,19,19,19,-5,-6,19,19,-9,]),'EQUAL':([2,3,6,7,8,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,],[20,21,-10,20,-11,-8,20,20,20,20,20,20,20,-3,-4,-5,-6,20,20,-9,]),'RPAREN':([6,8,22,23,31,32,33,34,35,37,],[-10,-11,-8,37,-3,-4,-5,-6,-7,-9,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -23,11 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-<<<<<<< HEAD
-_lr_goto_items = {'statement':([0,],[1,]),'expression':([0,1,4,5,10,11,12,13,14,15,],[2,7,16,17,19,20,21,22,23,24,]),}
-=======
-_lr_goto_items = {'statement':([0,],[1,]),'expression':([0,1,4,5,10,11,12,13,14,15,16,17,18,19,20,],[2,7,21,22,24,25,26,27,28,29,30,31,32,33,34,]),}
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+_lr_goto_items = {'statement':([0,],[1,]),'expression':([0,1,4,5,10,11,12,13,14,15,16,17,18,19,20,21,],[2,7,22,23,25,26,27,28,29,30,31,32,33,34,35,36,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -37,36 +27,22 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> statement","S'",1,None,None,None),
-<<<<<<< HEAD
-  ('statement -> statement expression SEMICOLON','statement',3,'p_statement_expr','calc1.py',55),
-  ('statement -> expression SEMICOLON','statement',2,'p_statement_expr','calc1.py',56),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','calc1.py',65),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','calc1.py',66),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','calc1.py',67),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','calc1.py',68),
-  ('expression -> expression EQUAL expression','expression',3,'p_expression_binop','calc1.py',69),
-  ('expression -> MINUS expression','expression',2,'p_expression_uminus','calc1.py',79),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','calc1.py',83),
-  ('expression -> NUMBER','expression',1,'p_expression_number','calc1.py',87),
-  ('expression -> NAME','expression',1,'p_expression_name','calc1.py',91),
-  ('statement -> NAME EQUAL expression SEMICOLON','statement',4,'p_expression_affect','calc1.py',99),
-=======
-  ('statement -> statement expression SEMICOLON','statement',3,'p_statement_expr','calc1.py',64),
-  ('statement -> expression SEMICOLON','statement',2,'p_statement_expr','calc1.py',65),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','calc1.py',74),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','calc1.py',75),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','calc1.py',76),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','calc1.py',77),
-  ('expression -> MINUS expression','expression',2,'p_expression_uminus','calc1.py',85),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','calc1.py',89),
-  ('expression -> NUMBER','expression',1,'p_expression_number','calc1.py',93),
-  ('expression -> NAME','expression',1,'p_expression_name','calc1.py',97),
-  ('statement -> NAME EQUAL expression SEMICOLON','statement',4,'p_expression_affect','calc1.py',105),
-  ('statement -> expression COMP_EQ expression','statement',3,'p_expression_comp','calc1.py',109),
-  ('statement -> expression COMP_LE expression','statement',3,'p_expression_comp','calc1.py',110),
-  ('statement -> expression COMP_GR expression','statement',3,'p_expression_comp','calc1.py',111),
-  ('statement -> expression COMP_DIFF expression','statement',3,'p_expression_comp','calc1.py',112),
-  ('statement -> expression COMP_EQ_GR expression','statement',3,'p_expression_comp','calc1.py',113),
-  ('statement -> expression COMP_EQ_LE expression','statement',3,'p_expression_comp','calc1.py',114),
->>>>>>> 840271a8b7fed0105a48fd97b5a4b19ea2e10911
+  ('statement -> statement expression SEMICOLON','statement',3,'p_statement_expr','calc1(V2).py',60),
+  ('statement -> expression SEMICOLON','statement',2,'p_statement_expr','calc1(V2).py',61),
+  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','calc1(V2).py',70),
+  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','calc1(V2).py',71),
+  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','calc1(V2).py',72),
+  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','calc1(V2).py',73),
+  ('expression -> expression EQUAL expression','expression',3,'p_expression_binop','calc1(V2).py',74),
+  ('expression -> MINUS expression','expression',2,'p_expression_uminus','calc1(V2).py',84),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','calc1(V2).py',88),
+  ('expression -> NUMBER','expression',1,'p_expression_number','calc1(V2).py',92),
+  ('expression -> NAME','expression',1,'p_expression_name','calc1(V2).py',96),
+  ('statement -> NAME EQUAL expression SEMICOLON','statement',4,'p_expression_affect','calc1(V2).py',104),
+  ('statement -> expression COMP_EQ expression','statement',3,'p_expression_comp','calc1(V2).py',108),
+  ('statement -> expression COMP_LE expression','statement',3,'p_expression_comp','calc1(V2).py',109),
+  ('statement -> expression COMP_GR expression','statement',3,'p_expression_comp','calc1(V2).py',110),
+  ('statement -> expression COMP_DIFF expression','statement',3,'p_expression_comp','calc1(V2).py',111),
+  ('statement -> expression COMP_EQ_GR expression','statement',3,'p_expression_comp','calc1(V2).py',112),
+  ('statement -> expression COMP_EQ_LE expression','statement',3,'p_expression_comp','calc1(V2).py',113),
 ]
