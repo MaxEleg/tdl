@@ -7,7 +7,7 @@
 tokens = (
     'NAME','NUMBER',
     'PLUS','MINUS','TIMES','DIVIDE',
-    'LPAREN','RPAREN', 'SEMICOLON', 'EQUAL'
+    'LPAREN','RPAREN', 'SEMICOLON', 'EQUAL', 'OR', 'AND'
 )
 
 # Tokens
@@ -20,9 +20,11 @@ t_TIMES   = r'\*'
 t_DIVIDE  = r'/'
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
+t_OR      = r'OR'
+t_AND     = r'AND'
 t_NAME    = r'[a-zA-Z_][a-zA-Z0-9_]*'
-t_SEMICOLON    = r';'
-t_EQUAL    = r'='
+t_SEMICOLON = r';'
+t_EQUAL    = r'=='
 
 def t_NUMBER(t):
     r'\d+'
@@ -51,10 +53,6 @@ precedence = (
     ('right','UMINUS')
 )
 
-
-
-
-
 def p_statement_expr(p):
     '''statement : statement expression SEMICOLON
                  | expression SEMICOLON'''
@@ -69,11 +67,14 @@ def p_expression_binop(p):
     '''expression : expression PLUS expression
                   | expression MINUS expression
                   | expression TIMES expression
-                  | expression DIVIDE expression'''
+                  | expression DIVIDE expression
+                  | expression EQUAL expression'''
+
     if p[2] == '+'  : p[0] = ('+', p[1], p[3])
     elif p[2] == '-': p[0] = ('-', p[1], p[3])
     elif p[2] == '*': p[0] = ('*', p[1], p[3])
     elif p[2] == '/': p[0] = ('/', p[1], p[3])
+    elif p[2] == '==': p[0] = ('==', p[1], p[3])
 
 
 def p_expression_uminus(p):
@@ -112,8 +113,10 @@ def eval(t):
         elif op == '-':  return eval(a) - eval(b)
         elif op == '*':  return eval(a) * eval(b)
         elif op == '/':  return eval(a) / eval(b)
+        elif op == '==': return eval(a) == eval(b)
     else:
-        return t;
+        return t
+
 def printTree(t):
     if type(t) == tuple:
         print(t[0])
