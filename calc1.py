@@ -56,9 +56,19 @@ precedence = (
     ('right','UMINUS')
 )
 
+def p_bloc(p):
+    '''block : block statement
+             | statement '''
+    length = len(p)
+    if length == 3:
+        print(eval(p[2]))
+    elif length == 2:
+        print(eval(p[1]))
+
+    p[0] = p[3]
+
 def p_statement_expr(p):
-    '''statement : statement expression SEMICOLON
-                 | expression SEMICOLON'''
+    '''statement : expression SEMICOLON'''
     length = len(p)
 
     if length == 4:
