@@ -62,20 +62,19 @@ def p_bloc(p):
     length = len(p)
     if length == 3:
         print(eval(p[2]))
+        p[0] = (p[1],p[2])
     elif length == 2:
         print(eval(p[1]))
+        p[0] = (p[1], 'empty')
 
-    p[0] = p[1]
     print(p[0])
+    print(eval(p[0]))
 
 def p_statement_expr(p):
     '''statement : expression SEMICOLON'''
     length = len(p)
 
-    if length == 4:
-        print(eval(p[2]))
-    elif length == 3:
-        print(eval(p[1]))
+    p[0] = p[1]
 
 def p_expression_binop(p):
     '''expression : expression PLUS expression
@@ -105,16 +104,12 @@ def p_expression_number(p):
 
 def p_expression_name(p):
     'expression : NAME'
-    try:
-        p[0] = names[p[1]]
-    except LookupError:
-        print("Undefined name '%s'" % p[1])
-        p[0] = 0
+    p[0] = p[1]
 
 def p_expression_affect(p):
     '''statement : NAME EQUAL expression SEMICOLON'''
     if p[2] == '=':
-        print("found")
+        #names[p[1]] = p[3]
         p[0] = ('=',p[3],p[1])
 
 def p_expression_comp(p):
@@ -126,7 +121,6 @@ def p_expression_comp(p):
                  | expression COMP_EQ_LE expression '''
     p[0] = (p[2], p[1], p[3])
     print(p[0])
-    print(eval(p[0]))
 
 def p_error(p):
     print("Syntax error at '%s'" % p.value)
@@ -136,6 +130,7 @@ def eval(t):
         op=t[0]
         a=t[1]
         b=t[2]
+        print(a, b)
         if op == '+':  return eval(a) + eval(b)
         elif op == '-':  return eval(a) - eval(b)
         elif op == '*':  return eval(a) * eval(b)
@@ -146,7 +141,9 @@ def eval(t):
         elif op == '!=': return eval(a) != eval(b)
         elif op == '<=': return eval(a) <= eval(b)
         elif op == '>=': return eval(a) >= eval(b)
-        elif op == '=': return eval(a) == eval(b)
+        elif op == '=':
+            names[a] = eval(b)
+            return 0
     else:
         return t
 
