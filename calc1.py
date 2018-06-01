@@ -79,15 +79,12 @@ def p_expression_binop(p):
     '''expression : expression PLUS expression
                   | expression MINUS expression
                   | expression TIMES expression
-                  | expression DIVIDE expression
-                  | expression EQUAL expression'''
+                  | expression DIVIDE expression'''
 
     if p[2] == '+'  : p[0] = ('+', p[1], p[3])
     elif p[2] == '-': p[0] = ('-', p[1], p[3])
     elif p[2] == '*': p[0] = ('*', p[1], p[3])
     elif p[2] == '/': p[0] = ('/', p[1], p[3])
-    elif p[2] == '==': p[0] = ('==', p[1], p[3])
-
 
 def p_expression_uminus(p):
     'expression : MINUS expression %prec UMINUS'
@@ -108,7 +105,6 @@ def p_expression_name(p):
 def p_expression_affect(p):
     '''statement : NAME EQUAL expression SEMICOLON'''
     if p[2] == '=':
-        #names[p[1]] = p[3]
         p[0] = ('=',p[3],p[1])
 
 def p_empty(p):
