@@ -65,7 +65,8 @@ def p_bloc(p):
     elif length == 2:
         print(eval(p[1]))
 
-    p[0] = p[3]
+    p[0] = p[1]
+    print(p[0])
 
 def p_statement_expr(p):
     '''statement : expression SEMICOLON'''
@@ -111,8 +112,10 @@ def p_expression_name(p):
         p[0] = 0
 
 def p_expression_affect(p):
-    'statement : NAME EQUAL expression SEMICOLON'
-    names[p[1]] = p[3]
+    '''statement : NAME EQUAL expression SEMICOLON'''
+    if p[2] == '=':
+        print("found")
+        p[0] = ('=',p[3],p[1])
 
 def p_expression_comp(p):
     '''statement : expression COMP_EQ expression
@@ -143,6 +146,7 @@ def eval(t):
         elif op == '!=': return eval(a) != eval(b)
         elif op == '<=': return eval(a) <= eval(b)
         elif op == '>=': return eval(a) >= eval(b)
+        elif op == '=': return eval(a) == eval(b)
     else:
         return t
 
