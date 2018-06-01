@@ -58,7 +58,7 @@ precedence = (
 
 def p_bloc(p):
     '''block : block statement
-             | statement '''
+             | statement'''
     length = len(p)
     if length == 3:
         print(eval(p[2]))
@@ -68,12 +68,11 @@ def p_bloc(p):
         p[0] = (p[1], 'empty')
 
     print(p[0])
-    print(eval(p[0]))
+    #print(eval(p[0]))
 
 def p_statement_expr(p):
     '''statement : expression SEMICOLON'''
     length = len(p)
-
     p[0] = p[1]
 
 def p_expression_binop(p):
@@ -111,6 +110,10 @@ def p_expression_affect(p):
     if p[2] == '=':
         #names[p[1]] = p[3]
         p[0] = ('=',p[3],p[1])
+
+def p_empty(p):
+    '''empty :'''
+    pass
 
 def p_expression_comp(p):
     '''statement : expression COMP_EQ expression
